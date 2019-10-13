@@ -11,24 +11,25 @@ class Dog():
         self.enjoyment = 100
 
     def sit(self):
+        """Simulate a dog sitting in response to a command."""
         print(self.name.title() + " is now sitting.")
 
     def roll_over(self):
         print(self.name.title() + " rolled over.")
 
-    def thirst(self, gain):
+    def thirstfunc(self, gain):
         if gain:
             self.thirst = self.thirst + 2
         elif not gain:
             self.thirst = self.thirst - 1
 
-    def hunger(self, gain):
+    def hungerfunc(self, gain):
         if gain:
             self.hunger = self.hunger + 2
         elif not gain:
             self.hunger = self.hunger - 1
 
-    def enjoyment(self, gain):
+    def enjoymentfunc(self, gain):
         if gain:
             self.enjoyment = self.enjoyment + 2
         elif not gain:

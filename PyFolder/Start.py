@@ -1,31 +1,38 @@
 from DogModule import Dog
 
-name = input("What is your desired dog name? ")
+name = input("What is your desired dog name?\n")
 my_dog = Dog(name, 6, "Pincher")
 day = 0
 
 
-def statloss(Dog):
-    Dog.looseEnjoyment
-    Dog.looseHunger()
-    Dog.looseThirst()
+def statloss(pet):
+    pet.enjoymentfunc(False)
+    pet.thirstfunc(False)
+    pet.hungerfunc(False)
 
 
-def NextDay(pet):
+def nextDay(pet):
     global day
     pet.statPrinter()
     print(day)
-    dec = input("What do you want to do now? ")
+    dec = input("What do you want to do now? Your options are... \n Next \n Play \n Quench \n Feed \n")
     print(dec)
-    pet.enjoyment(False)
-    pet.thirst(False)
-    pet.hunger(False)
+    statloss(pet)
     if dec == "Next":
         day = day + 1
-        NextDay(pet)
+        nextDay(pet)
     elif dec == "Play":
-        pet.enjoyment(True)
-        NextDay(pet)
+        pet.enjoymentfunc(True)
+        nextDay(pet)
+    elif dec == "Feed":
+        pet.hungerfunc(True)
+        nextDay(pet)
+    elif dec == "Quench":
+        pet.thirstfunc(True)
+        nextDay(pet)
+    else:
+        print("You wasted a day")
+        nextDay(pet)
 
 
-NextDay(my_dog)
+nextDay(my_dog)
